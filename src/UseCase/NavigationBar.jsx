@@ -4,8 +4,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
 import useCounterStore from '../Zustand/counter_store';
+import useFavoriteStore from '../ZustandStores/useFavoriteStore';
+
 export default function NavigationBar(){
     const count = useCounterStore(state=>state.count);
+    const favoritesCount = useFavoriteStore(state=>state.getFavoritesCount());
+    
     const style = {
         textDecoration: "none",
         color: "black"
@@ -26,7 +30,10 @@ export default function NavigationBar(){
           style={({isActive})=> (isActive? customStyle: style)}
           >Home</Nav.Link>
           <Nav.Link as={NavLink} to="/events" style={({isActive})=> (isActive? customStyle: style)} >Events</Nav.Link>
-          <Nav.Link as={NavLink} to={'/events/add'} >Add Event</Nav.Link>
+          <Nav.Link as={NavLink} to={'/events/add'} style={({isActive})=> (isActive? customStyle: style)}>Add Event</Nav.Link>
+          <Nav.Link as={NavLink} to={'/favorites'} style={({isActive})=> (isActive? customStyle: style)}>
+            Mes Favoris {favoritesCount > 0 && `(${favoritesCount})`}
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
