@@ -19,6 +19,16 @@
       "nbTickets": 3,
       "nbParticipants": 0,
       "like": false
+    },
+    {
+      "id": "42ce",
+      "name": "Events",
+      "description": "Meilleur Events ",
+      "price": 22,
+      "img": "5b6a3274-d48a-4136-ab7a-b2b3bcb1e72a.jpg",
+      "nbTickets": 22,
+      "nbParticipants": 0,
+      "like": false
     }
   ]
 }
